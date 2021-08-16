@@ -19,12 +19,12 @@ First off, I used Unity 2019 LTS version. Why? Because newer versions of Unity d
 so I had to sacrifice my Unity version in order to still be able to develop with ARCore. Plus, it has better documentation, in my opinion. 
 
 ARCore SDK has a class called Frame.Pose. This refers to the calculated transformation of the ARDevice (i.e. the device that is running the program and feeding in the camera input).
-I used this class to dictate the movements of a gameobject meant to represent the player, done through setting its position equal to the transformation of the ARDevice 
-as well as the offset position for the player (representative of the location synchronization position).
+I used this class to dictate the movements of a gameobject meant to represent the user, done through setting its position equal to the transformation of the ARDevice 
+as well as the offset position for the user (representative of the location synchronization position).
 
 For the rotations, it was a bit more nuanced. This is a bit difficult to word, but I'll try my best. 
 ARCore initializes its tracking with whatever direction it is facing, i.e. whatever direction it is facing will be considered the forward direction. So, because of that, it doesn't matter what the device's initial rotation is. If the device (and the corresponding 
-gameobject representing the player) are initialized at a rotation of, for example, 90 degrees to the right, ARCore will not take that into consideration. So, if you move 90 degrees to the left, and then start moving forward 
+gameobject representing the user) are initialized at a rotation of, for example, 90 degrees to the right, ARCore will not take that into consideration. So, if you move 90 degrees to the left, and then start moving forward 
 (aka you turn left to face straight and start moving straight), it will create an awkward and incorrect positioning in the app, where going straight forward is not what you see in the ARCore calculations, even though that's what you're doing IRL.
 Alternatively, if you decide to move forward while you're still in that 90 degree position, it will translate you forward, but not towards wherever you're facing. For an analogy, imagine a car parked sideways, facing West. You are an observer who is facing the North direction. You see someone is in the driver's seat, and 
 when they hit the acceleration pedal, you expect them to move further West. But instead, the car moves North, even though the car is sideways facing West -- doesn't make sense, right? That's because the North direction is where you're facing (consider your POV to be a simulation of that of the ARDevice in the context of this app), i.e. North is the forward direction when it was initialized, so it will move North when you go forward. 

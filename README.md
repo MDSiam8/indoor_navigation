@@ -41,8 +41,10 @@ And speaking of NavMesh, it doesn't automatically find the obstacles in a flat m
 manually using basic shapes like cubes and spheres. After you create the obstacles, you have to bake the NavMesh again to factor in the obstacles, if you hadn't already, and then you could simply just set the 
 obstacles to be inactive afterwards beacause they won't be needed again, unless you bake it again and the factored in obstacles disappear from the Navmesh path. 
 
+Then after creating the path drawing system, I updated the user interface. I used Century Gothic for the font because of it's pleasing and just generally friendly aesthetic. 
+
 # Any tips for others trying to make a similar app?
 YES! Before you hit the build button, double check whether or not your ARCore script is activated. This will save you from a lot of unnecessary frustrations :').
 Also, consider using high-level NavMesh components; these do not come installed with Unity, so you have to install them yourself. 
 Another tip: if you want to scale things in Unity, such as a map, you should know that in Unity, one unit means one meter. So, for example, the way I scaled my map into the 
-game was that I summoned a primitive cube, with scale 1 x 1 x 1. 
+game was that I summoned a primitive cube, with scale 1 x 1 x 1. Then I imported in my scaled map, which was on graph paper where 1 unit was equal to 1 meter. I stretched out that map both ways, both the length and the width, until one of the cubes on the graph paper fit 1 to 1 with the summoned primitive cube. Then, I deleted the primitive cube becuase it was not needed anymore. 

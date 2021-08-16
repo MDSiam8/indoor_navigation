@@ -23,7 +23,7 @@ I used this class to dictate the movements of a gameobject meant to represent th
 as well as the offset position for the user (representative of the location synchronization position).
 
 For the rotations, it was a bit more nuanced. This is a bit difficult to word, but I'll try my best. 
-ARCore initializes its tracking with whatever direction it is facing, i.e. whatever direction it is facing will be considered the forward direction. So, because of that, it doesn't matter what the device's initial rotation is. If the device (and the corresponding 
+ARCore initializes its tracking with whatever direction it is facing, i.e. whatever direction it is facing in the Unity editor will be considered the forward direction. So, because of that, it doesn't matter what the device's initial rotation is. If the device (and the corresponding 
 gameobject representing the user) are initialized at a rotation of, for example, 90 degrees to the right, ARCore will not take that into consideration. So, if you move 90 degrees to the left, and then start moving forward 
 (aka you turn left to face straight and start moving straight), it will create an awkward and incorrect positioning in the app, where going straight forward is not what you see in the ARCore calculations, even though that's what you're doing IRL.
 Alternatively, if you decide to move forward while you're still in that 90 degree position, it will translate you forward, but not towards wherever you're facing. For an analogy, imagine a car parked sideways, facing West. You are an observer who is facing the North direction. You see someone is in the driver's seat, and 
